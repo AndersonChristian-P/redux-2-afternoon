@@ -9,9 +9,14 @@ import Nav from './../shared/Nav';
 import './Budget.css';
 
 import { connect } from "react-redux"
+import { requestUserData } from "./../../ducks/userReducer"
 
 
 class Budget extends Component {
+
+  componentDidMount() {
+    this.props.requestUserData()
+  }
 
   render() {
     return (
@@ -36,9 +41,12 @@ class Budget extends Component {
 }
 
 function mapStateToProps(state) {
-  return state.budget
+  return {
+    budget: state.budget,
+    user: state.user
+  }
 }
 
 // this.props.budget can now access the state in budgetReducer.js
 
-export default connect(mapStateToProps)(Budget);
+export default connect(mapStateToProps, { requestUserData })(Budget);
