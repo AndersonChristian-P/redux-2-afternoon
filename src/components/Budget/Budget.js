@@ -8,13 +8,15 @@ import Loading from './../shared/Loading/Loading';
 import Nav from './../shared/Nav';
 import './Budget.css';
 
+import { connect } from "react-redux"
+
 
 class Budget extends Component {
 
   render() {
     return (
       <Background>
-        {true ? <Loading /> : null}
+        {this.props.budget.loading ? <Loading /> : null}
         <div className='budget-container'>
           <Nav />
           <div className='content-container'>
@@ -33,4 +35,10 @@ class Budget extends Component {
   }
 }
 
-export default Budget;
+function mapStateToProps(state) {
+  return state.budget
+}
+
+// this.props.budget can now access the state in budgetReducer.js
+
+export default connect(mapStateToProps)(Budget);
