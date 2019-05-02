@@ -8,9 +8,6 @@ const rootReducer = combineReducers({
   user: userReducer
 })
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(promiseMiddleware)
-)
+const store = createStore(rootReducer, applyMiddleware(promiseMiddleware))
 
 export default store

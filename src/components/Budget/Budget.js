@@ -12,7 +12,6 @@ import { connect } from "react-redux"
 import { requestUserData } from "./../../ducks/userReducer"
 import { requestBudgetData, addPurchase, removePurchase } from "./../../ducks/budgetReducer"
 
-
 class Budget extends Component {
 
   componentDidMount() {
